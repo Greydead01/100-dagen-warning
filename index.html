@@ -49,7 +49,7 @@ static unsigned long entropy = 0xDEADBEEF;
 `;
 
   const warningText = `
-UNAUTHORIZED ACCESS DETECTED
+UNAUTHORIZED ACCES DETECTED
 
 THIS MESSAGE WAS NOT MEANT FOR YOU
 
@@ -99,9 +99,10 @@ KEEP YOUR EYES OPEN
           screen.style.textAlign = "center";
           screen.style.color = "darkred";
           screen.style.fontSize = "36px";
+          screen.style.fontWeight = "900";
 
           screen.innerHTML =
-            "Senior Zenith 2026 terminated this message";
+            "<strong>SENIOR ZENITH 2026 TERMINATED THIS MESSAGE</strong>";
 
         }, 5000);
 
