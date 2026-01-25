@@ -18,6 +18,12 @@
     #screen {
       white-space: pre-wrap;
     }
+
+    .final-line {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
   </style>
 </head>
 <body>
@@ -76,7 +82,7 @@ KEEP YOUR EYES OPEN
   }
 
   function randomWord(length) {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789*$#@!%&?/+=<>~";
     let result = "";
     for (let i = 0; i < length; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -90,12 +96,12 @@ KEEP YOUR EYES OPEN
 
     setTimeout(() => {
 
-      // RESET → zwart + groen
+      // RESET → zwart + BLAUW
       document.body.style.backgroundColor = "black";
-      document.body.style.color = "#00ff00";
+      document.body.style.color = "#3fa9ff"; // blauw
       screen.innerHTML = "";
 
-      // FASE 2 – boodschap
+      // FASE 2 – waarschuwing
       typeText(warningText, 45, () => {
 
         // NA 5 SEC → DEFINITIEVE TERMINATIE
@@ -111,12 +117,15 @@ KEEP YOUR EYES OPEN
           screen.style.fontWeight = "900";
 
           screen.innerHTML = `
-<span id="scramble">AAAAA</span> TERMINATED THIS MESSAGE
+<div class="final-line">
+  <span id="scramble">#####</span>
+  <span>TERMINATED THIS MESSAGE</span>
+</div>
           `;
 
           const scramble = document.getElementById("scramble");
 
-          // Minecraft-style randomizer
+          // Special-character scramble
           setInterval(() => {
             scramble.textContent = randomWord(5);
           }, 120);
